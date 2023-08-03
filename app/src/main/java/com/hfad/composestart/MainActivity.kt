@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -27,23 +28,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeStartTheme{
-                InstagramProfileCard()
-            }
+                Box(modifier = Modifier.fillMaxSize()
+                    .background(MaterialTheme.colors.background)) {
+                    InstagramProfileCard()
+                }
             }
         }
-}
-
-@Preview
-@Composable
-fun CardTest()
-{
-    Card(
-        shape = RoundedCornerShape(topStart = 4.dp, topEnd = 4.dp),
-        backgroundColor = Color.Green,
-        contentColor = Color.DarkGray,
-        border = BorderStroke(1.dp, Color.Black)
-    ) {
-        Text(text = "Hello World!",
-        modifier = Modifier.padding(8.dp))
     }
 }
+
